@@ -59,6 +59,13 @@
                         <span class="align-middle">Data Anak</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('dashboard.feedback.index') }}">
+                        <i class="align-middle me-2" data-feather="user"></i>
+                        <span class="align-middle">Data Feedback</span>
+                    </a>
+                </li>
 {{--            <li class="sidebar-item {{ request()->routeIs('admin.rentcars.*') ? 'active' : '' }}">--}}
 {{--                <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">--}}
 {{--                    <i class="align-middle me-2 fas fa-fw fa-car"></i>--}}

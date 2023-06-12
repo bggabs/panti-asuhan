@@ -34,6 +34,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function() {
+
     Route::get('/', [HomeDashboardController::class, 'index'])->name('index');
     Route::get('/donation', [DonationDashboardController::class, 'index'])->name('donation');
     Route::get('/donation/printMoneyDonation', [DonationDashboardController::class, 'printMoneyDonation'])->name('printMoneyDonation');
@@ -41,7 +42,9 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         'events' => \App\Http\Controllers\Dashboard\EventController::class,
         'galeries' => AdminGalleryController::class,
         'profile' => ProfileController::class,
-        'child' => ChildController::class
+        'child' => ChildController::class,
+        'feedback' => \App\Http\Controllers\Dashboard\FeedbackController::class,
+        'contact' => ContactController::class,
     ]);
 
 });
