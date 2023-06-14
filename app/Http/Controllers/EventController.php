@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     public function index(){
-        $events = \App\Models\Activity::all();
+        $events = \App\Models\Activity::orderBy('datetime', 'desc')->paginate(1);
         return view('event', compact('events'));
 //        return view('event');
     }
