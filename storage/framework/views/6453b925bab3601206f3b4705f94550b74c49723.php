@@ -47,12 +47,10 @@
 
                                         <td><?php echo e(\Carbon\Carbon::parse($gallery->date)->format('d M Y')); ?></td>
                                         <td>
-                                            <form action="<?php echo e(route('dashboard.galeries.destroy',$gallery->id)); ?>" method="post">
+                                            <div>
                                             <a class="btn btn-info" href="<?php echo e(route('dashboard.galeries.edit',$gallery->id)); ?>"><i class="align-middle" data-feather="edit-2"></i></a>
-                                                <?php echo csrf_field(); ?>
-                                                <?php echo method_field('DELETE'); ?>
-                                            <button type="submit" class="btn btn-danger"><i class="align-middle" data-feather="trash"></i></button>
-                                            </form>
+                                            <a data-id="<?php echo e($gallery->id); ?>" class="btn btn-danger delete"><i class="align-middle" data-feather="trash"></i></a>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -64,11 +62,32 @@
             </div>
 
         </div>
+        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.delete-modal','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('delete-modal'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?> <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
     </main>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
     <script>
+        $(document).on('click', '.delete', function () {
+            $('#exampleModal').modal('show')
+            const id = $(this).attr('data-id');
+            let url = `<?php echo e(route('dashboard.galeries.destroy', ':id')); ?>`.replace(':id', id);
+            $('#deleteForm').attr('action', url);
+        });
+
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true

@@ -27,26 +27,30 @@
                 </a>
             </li>
             <?php if(auth()->user()->roles->pluck('name')[0] == 'admin'): ?>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?php echo e(route('dashboard.donation')); ?>">
-                        <i class="align-middle" data-feather="heart"></i>
-                        <span class="align-middle">Donasi</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item <?php echo e(request()->routeIs('dashboard.donation.*') ? 'active' : ''); ?>">
+						<a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle" data-feather="heart"></i> 
+                            <span class="align-middle">Donasi</span>
+                        </a>
+						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+							<li class="sidebar-item <?php echo e(request()->routeIs('dashboard.donation.barang.*') ? 'active' : ''); ?>"><a class="sidebar-link" href="<?php echo e(Route('dashboard.donation.barang.index')); ?>">Barang</a></li>
+							<li class="sidebar-item <?php echo e(request()->routeIs('dashboard.donation.uang') ? 'active' : ''); ?>"><a class="sidebar-link" href="<?php echo e(Route('dashboard.donation.uang')); ?>">Uang</a></li>
+						</ul>
+					</li>
+                <li class="sidebar-item <?php echo e(request()->routeIs('dashboard.events.index') ? 'active' : ''); ?>">
                 <a class="sidebar-link" href="<?php echo e(route('dashboard.events.index')); ?>">
                     <i class="align-middle" data-feather="heart"></i>
                     <span class="align-middle">Event</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item <?php echo e(request()->routeIs('dashboard.galeries.index') ? 'active' : ''); ?>">
                     <a class="sidebar-link" href="<?php echo e(route('dashboard.galeries.index')); ?>">
                         <i class="align-middle me-2" data-feather="camera"></i>
                         <span class="align-middle">Gallery</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item  <?php echo e(request()->routeIs('dashboard.profile.index') ? 'active' : ''); ?>">
                     <a class="sidebar-link" href="<?php echo e(route('dashboard.profile.index')); ?>">
                         <i class="align-middle me-2" data-feather="film"> </i>
                         <span class="align-middle">Data Profiles</span>
