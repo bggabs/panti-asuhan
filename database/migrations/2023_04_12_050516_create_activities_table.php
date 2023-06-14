@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->datetime('datetime');
             $table->text('description');
+            $table->text('content');
             $table->text('photo')->nullable();
             $table->integer('cost');
             $table->enum('activity_type', ['internal', 'external']);

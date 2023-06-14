@@ -69,6 +69,10 @@
                                         <label class="form-label">Gambar</label>
                                         <input type="file" name="photo" class="form-control">
                                     </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Konten</label>
+                                        <textarea rows="10" class="form-control" name="content">{{ $event->content }}</textarea>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
