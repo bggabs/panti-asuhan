@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->string('name');
             $table->date('date');
-            $table->string('payment_type');
+            $table->string('payment_type')->nullable();
             $table->string('bank')->nullable();
             $table->foreignId('user_id')->constrained("users");
             $table->string('status');
