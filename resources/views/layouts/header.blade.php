@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/home">PantiCare</a>
+        <a class="navbar-brand" href="/home">Panti Mawaddah Warohmah</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -14,7 +14,6 @@
                 @else
                 <li class="nav-item {{ request()->is('donate') ? 'active' : '' }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="#" class="nav-link ">Donate</a></li>
                 @endif
-                <li class="nav-item {{ request()->is('blog') ? 'active' : '' }}"><a href="/blog" class="nav-link">Blog</a></li>
                 <li class="nav-item {{ request()->is('gallery') ? 'active' : '' }}"><a href="/gallery" class="nav-link">Gallery</a></li>
                 <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event" class="nav-link">Events</a></li>
                 <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}"><a href="/contact" class="nav-link">Contact</a></li>

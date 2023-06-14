@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="hero-wrap" style="background-image: url({{asset('images/bg_7.jpg')}});" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url({{asset('images/panti4.jpg')}});" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -18,44 +18,50 @@
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-about align-self-stretch" style="background-image: url({{asset('images/bg_3.jpg')}}); width: 100%;"></div>
+                    <div class="img img-about align-self-stretch" style="background-image: url({{asset('images/panti4.jpg')}}); width: 100%;"></div>
                 </div>
                 <div class="col-md-6 pl-md-5 ftco-animate">
-                    <h2 class="mb-4">Welcome to Welfare Stablished Since 1898</h2>
-                    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                    <h2 class="mb-4">Panti Mawaddah Warrahmah</h2>
+                    <p>Panti Asuhan Mawaddah Warrahmah Malang merupakan sebuah lembaga sosial yang bertujuan untuk memberikan perlindungan, pendidikan, dan perawatan kepada anak-anak yang kurang beruntung, yatim piatu, dan terlantar di wilayah Malang. Panti asuhan ini didirikan dengan semangat kasih sayang, kepedulian, dan perhatian terhadap masa depan anak-anak yang membutuhkan perhatian khusus.</p>
+                    <p>Panti Asuhan Mawaddah Warrahmah Malang menyediakan lingkungan yang aman, nyaman, dan hangat bagi anak-anak yang tinggal di sana. Staf dan relawan yang terlatih dengan baik berdedikasi untuk memberikan perhatian individual kepada setiap anak, serta mendukung mereka dalam memenuhi kebutuhan dasar, seperti makanan, pakaian, tempat tinggal, dan perawatan kesehatan. Panti asuhan ini juga berusaha memberikan pendidikan yang berkualitas kepada anak-anak dengan bekerja sama dengan sekolah lokal atau mengadakan program pendidikan di dalam panti.</p>
+                    <p>Selain memberikan perlindungan dan pendidikan, Panti Asuhan Mawaddah Warrahmah Malang juga berupaya membantu anak-anak mengembangkan keterampilan dan bakat mereka. Mereka mengadakan berbagai kegiatan seperti pelatihan keterampilan, olahraga, seni, dan kegiatan sosial lainnya untuk membantu anak-anak menemukan minat dan potensi terbaik mereka. Panti asuhan ini juga mengedepankan pendekatan yang menghormati kebudayaan dan agama anak-anak, sehingga mereka merasa diterima dan dihargai dalam lingkungan yang multikultural.</p>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-counter ftco-intro ftco-intro-2" id="section-counter">
+    <section class="ftco-counter ftco-intro" id="section-counter">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-1 align-items-stretch">
                         <div class="text">
-                            <span>Served Over</span>
-                            <strong class="number" data-number="1432805">0</strong>
-                            <span>Children in 190 countries in the world</span>
+                            <span>Jumlah Anak</span>
+                            <strong class="number" data-number="{{ $fosterChildCount }}">{{ $fosterChildCount }}</strong>
+                            <span>Jumlah anak yang ada pada Panti Asuhan</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-2 align-items-stretch">
                         <div class="text">
-                            <h3 class="mb-4">Donate Money</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                            <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+                            <h3 class="mb-4">Donasi</h3>
+                            <p>Ketika kita memberikan kebahagiaan kepada orang lain, sebenarnya kita sedang membahagiakan diri sendiri.</p>
+                            @if(Auth::check())
+                                <p><a href="{{ route('donation') }}" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+                            @else
+                                <p><a href="{{ route('donation') }}" class="btn btn-white px-3 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Donate Sekarang</a></p>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-3 align-items-stretch">
                         <div class="text">
-                            <h3 class="mb-4">Be a Volunteer</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                            <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
+                            <h3 class="mb-4">Donatur</h3>
+                            <p>sebaik-baiknya manusia mereka yang bermanfaat bagi orang lain.</p>
+                            <p><a href="#donatur" class="btn btn-white px-3 py-2 mt-2">Jadilah Donatur!</a></p>
                         </div>
                     </div>
                 </div>
@@ -63,58 +69,5 @@
         </div>
     </section>
 
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Latest Donations</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url({{asset('images/person_1.jpg')}});"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
-                                <div class="text">
-                                    <p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url({{asset('images/person_2.jpg')}});"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
-                                <div class="text">
-                                    <p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url({{asset('images/person_3.jpg')}});"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
-                                <div class="text">
-                                    <p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 @endsection

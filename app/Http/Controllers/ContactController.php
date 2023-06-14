@@ -10,9 +10,13 @@ class ContactController extends Controller
 {
     public function index()
     {
+        $profile = \App\Models\Profile::first();
+        $data = array(
+            'profile' => $profile,
+            $feedback = Feedback::orderBy('id', 'asc')->paginate(6),
+        );
         Feedback::all();
-        $feedback = Feedback::orderBy('id', 'asc')->paginate(6);
-        return view('contact',compact('feedback'));
+        return view('contact', $data, compact('feedback'));
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class DonationController extends Controller
 {
     public function index(){
-        return view('donate');
+        $profile = \App\Models\Profile::first();
+        $data = array(
+            'profile' => $profile,
+        );
+        return view('donate', $data);
     }
 }

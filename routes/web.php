@@ -28,7 +28,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $profile = \App\Models\Profile::all();
+    $data = array(
+        'profile' => $profile,
+    );
+    return view('welcome',$data);
 });
 
 Auth::routes();

@@ -8,7 +8,11 @@ class EventController extends Controller
 {
     public function index(){
         $events = \App\Models\Activity::all();
-        return view('event', compact('events'));
-//        return view('event');
+        $profile = \App\Models\Profile::first();
+        $data = array(
+            'events' => $events,
+            'profile' => $profile,
+        );
+        return view('event', $data);
     }
 }

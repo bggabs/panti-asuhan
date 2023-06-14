@@ -7,6 +7,7 @@ use App\Models\Donation;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -27,12 +28,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $fosterChildCount = DB::table('foster_children')->count();
+        $profile = \App\Models\Profile::first();
+        $gallery = \App\Models\Gallery::orderBy('created_at', 'desc')->take(4)->get();
+        $events = \App\Models\Activity::orderBy('created_at', 'desc')->take(3)->get();
+        $data = array(
+            'profile' => $profile,
+            'events' => $events,
+            'gallery' => $gallery,
+            'fosterChildCount' => $fosterChildCount
+        );
+        return view('home', $data);
     }
 
     public function donation()
     {
-        return view('donateform');
+        $profile = \App\Models\Profile::first();
+        $data = array(
+            'profile' => $profile,
+        );
+        return view('donateform', $data);
     }
 
     public function eventDonation(Activity $event)
