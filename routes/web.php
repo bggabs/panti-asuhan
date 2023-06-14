@@ -35,7 +35,13 @@ Auth::routes();
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function() {
     Route::get('/', [HomeDashboardController::class, 'index'])->name('index');
-    Route::get('/donation', [DonationDashboardController::class, 'index'])->name('donation');
+    Route::get('/donation/barang', [DonationDashboardController::class, 'viewBarang'])->name('donation.barang.index');
+    Route::get('/donation/barang/create',[DonationDashboardController::class,'create'])->name('donation.barang.create');
+    Route::get('/donation/barang/edit/{id}',[DonationDashboardController::class,'edit'])->name('donation.barang.edit');
+    Route::put('/donation/barang/update/{id}',[DonationDashboardController::class,'update'])->name('donation.barang.update');
+    Route::delete('/donation/barang/destroy/{id}',[DonationDashboardController::class,'destroy'])->name('donation.barang.destroy');
+    Route::post('/donation/store',[DonationDashboardController::class,'store'])->name('donation.barang.store');
+    Route::get('/donation/uang',[DonationDashboardController::class,'viewUang'])->name('donation.uang');
     Route::get('/donation/printMoneyDonation', [DonationDashboardController::class, 'printMoneyDonation'])->name('printMoneyDonation');
     Route::resources([
         'events' => \App\Http\Controllers\Dashboard\EventController::class,
