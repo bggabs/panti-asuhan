@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <main class="content">
     <div class="container-fluid p-0">
@@ -12,7 +11,7 @@
                         <h5 class="card-title mb-0">Profile</h5>
                     </div>
                     <div class="card-body text-center">
-                        <img src="<?php echo e(asset('storage/' . $profile->logo)); ?>" alt="Stacie Hall" class="img-fluid rounded-circle mb-2" width="150" height="150">
+                        <img src="<?php echo e(isset($profile->logo) ? asset('storage/' . $profile->logo) : ''); ?>" alt="Stacie Hall" class="img-fluid rounded-circle mb-2" width="150" height="150">
                         <h5 class="card-title mb-0"><?php echo e($profile->name); ?></h5>
                         <div class="text-muted mb-2"><?php echo e($profile->email); ?></div>
                     </div>

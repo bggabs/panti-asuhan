@@ -68,6 +68,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/donation-form', [HomeController::class, 'donation'])->name('donation');
     Route::post('/donate-action', [HomeController::class, 'donate'])->name('donate-action');
 });
+Route::get('/event-donation/{event}/detail', [EventController::class, 'show'])->name('event-detail');
+
 Route::post('/payment-notification-handling', [HomeController::class, 'handleAfterPayment'])->name('paymentHandling');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');

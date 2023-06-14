@@ -14,11 +14,15 @@
                 @foreach($events as $event)
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img class="card-img-top" src="{{ asset('storage/'. $event->photo) }}" alt="Unsplash">
+                            <img class="card-img-top" style="height: 200px" src="{{ asset('storage/'. $event->photo) }}" alt="Unsplash">
                             <div class="card-header">
                                 <h5 class="card-title mb-0">{{ $event->name }}</h5>
                             </div>
                             <div class="card-body">
+                                <div class="">
+                                    <span class="badge badge-soft-danger me-2">pengeluaran: Rp.{{$event->cost}} </span>
+                                    <span class="badge badge-soft-success me-2">pendapatan: Rp.{{ $event->donations->sum('amount') }} </span>
+                                </div>
                                 <p class="card-text">{{ $event->description }}</p>
                                 <a href="{{ route('dashboard.events.edit', $event->id) }}" class="card-link">Edit</a>
                                 <a href="#" data-id="{{ $event->id }}" class="card-link delete">Hapus</a>
