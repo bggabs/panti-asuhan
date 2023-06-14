@@ -35,10 +35,26 @@
                 </div>
             </div>
             <div class="row block-9">
+                @if (\Illuminate\Support\Facades\Session::has('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            @php
+                                $errors = \Illuminate\Support\Facades\Session::get('success');
+                                if (!is_array($errors)) {
+                                $errors = [$errors];
+                                }
+                            @endphp
+                            @foreach ($errors as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-md-6 pr-md-5">
                     <h4 class="mb-4">Do you have any questions?</h4>
-                    <form action="{{route('dashboard.feedback.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('dashboard.contact.index')}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="id" value="{{Str::random(10)}}">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Your Name" name="name">
                         </div>
@@ -52,12 +68,12 @@
                             <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
-
                 </div>
 
 {{--                <div class="col-md-6" id="map"></div>--}}
                 <div class="col-md-6">
-                    <iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.504444107287!2d112.6134797153657!3d-7.946708281366994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1679819123708!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{{--                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2792511651355!2d112.64903559999999!3d-7.970065399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62848a275c02b%3A0x568fe631a11cb170!2sPanti%20Asuhan%20Mawaddah%20Warohmah!5e0!3m2!1sid!2sid!4v1686542827963!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
+                    <iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2792511651355!2d112.6dw4903559999999!3d-7.970065399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62848a275c02b%3A0x568fe631a11cb170!2sPanti%20Asuhan%20Mawaddah%20Warohmah!5e0!3m2!1sid!2sid!4v1686542827963!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>

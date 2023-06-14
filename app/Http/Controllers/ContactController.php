@@ -12,7 +12,7 @@ class ContactController extends Controller
     {
         Feedback::all();
         $feedback = Feedback::orderBy('id', 'asc')->paginate(6);
-        return view('dashboard.pages.feedback.index',compact('feedback'));
+        return view('contact',compact('feedback'));
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -39,8 +39,8 @@ class ContactController extends Controller
         $request->validate([
             'id'=>'required',
             'name' => 'required',
-            'email' => 'email',
-            'message' => 'message',
+            'email' => 'required',
+            'message' => 'required',
         ]);
 
         //mengisi nilai model Gallery
@@ -53,6 +53,9 @@ class ContactController extends Controller
             $id = rand(1000, 9999);
         } while (Feedback::where('id', $id)->exists());
 
+        $feedback->id = $id;
+        $feedback->save();
+
 //        $feedback->id = $id;
 //        $feedback->photo = $request->file('photo')->store('feedback', 'public');
 //        $feedback->save();
@@ -60,7 +63,7 @@ class ContactController extends Controller
         //Child::create($request->all());
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
-        return redirect()->route('dashboard.feedback.index')
-            ->with('success', 'Berhasil Mengirim Feedback!');
+        return redirect()->route('dashboard.contact.index')
+            ->with('success', 'Berhasil Mengirim Feedback Anda!');
     }
 }
