@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('description');
             $table->enum('donation_type', ['uang', 'barang']);
             $table->text('photo');
+            $table->foreignId('activity_id')->nullable()->constrained('activities')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

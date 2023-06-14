@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="hero-wrap" style="background-image: url({{asset('images/bg_1.jpg')}});" data-stellar-background-ratio="0.5">
+<?php $__env->startSection('content'); ?>
+    <div class="hero-wrap" style="background-image: url(<?php echo e(asset('images/bg_1.jpg')); ?>);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -17,22 +15,22 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                @foreach ($events as $message)
+                <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a class="block-20" style="background-image: url('{{asset('storage/'.$message->photo)}}');">
+                        <a class="block-20" style="background-image: url('<?php echo e(asset('storage/'.$message->photo)); ?>');">
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
                                 <div><a href="#">Created by Admin</a></div>
                             </div>
-                            <h3 class="heading mb-4"><a href="#">{{ $message->name  }}</a></h3>
-                            <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> {{ $message->datetime  }}</span> <span><i class="icon-map-o"></i> {{ $message->location  }}</span></p>
-                            <p>{{$message->description}}</p>
-{{--                            <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>--}}
+                            <h3 class="heading mb-4"><a href="#"><?php echo e($message->name); ?></a></h3>
+                            <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> <?php echo e($message->datetime); ?></span> <span><i class="icon-map-o"></i> <?php echo e($message->location); ?></span></p>
+                            <p><?php echo e($message->description); ?></p>
+
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="{{ route('event-donation', $message->id) }}" class="btn btn-primary" style="width: 100%">Donasi</a>
+                                    <a href="<?php echo e(route('event-donation', $message->id)); ?>" class="btn btn-primary" style="width: 100%">Donasi</a>
                                 </div>
                                 <div class="col-md-6">
                                     <button class="btn btn-default" style="width: 100%">Detail</button>
@@ -42,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             </div>
             <div class="row mt-5">
@@ -62,4 +60,6 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\panti-asuhan\resources\views/event.blade.php ENDPATH**/ ?>
