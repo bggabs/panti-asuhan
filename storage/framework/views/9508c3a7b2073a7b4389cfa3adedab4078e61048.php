@@ -33,7 +33,7 @@
                                     <a href="<?php echo e(route('event-donation', $message->id)); ?>" class="btn btn-primary" style="width: 100%">Donasi</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-default" style="width: 100%">Detail</button>
+                                    <a href="<?php echo e(route('event-detail', $message->id)); ?>" class="btn btn-default" style="width: 100%">Detail</a>
                                 </div>
 
                             </div>
