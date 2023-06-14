@@ -47,12 +47,10 @@
 {{--                                        <td>{{ $gallery->gallery_type }}</td>--}}
                                         <td>{{ \Carbon\Carbon::parse($gallery->date)->format('d M Y') }}</td>
                                         <td>
-                                            <form action="{{ route('dashboard.galeries.destroy',$gallery->id) }}" method="post">
+                                            <div>
                                             <a class="btn btn-info" href="{{ route('dashboard.galeries.edit',$gallery->id) }}"><i class="align-middle" data-feather="edit-2"></i></a>
-                                                @csrf
-                                                @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="align-middle" data-feather="trash"></i></button>
-                                            </form>
+                                            <a data-id="{{$gallery->id}}" class="btn btn-danger delete"><i class="align-middle" data-feather="trash"></i></a>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -64,11 +62,19 @@
             </div>
 
         </div>
+        <x-delete-modal></x-delete-modal>
     </main>
 @endsection
 
 @section('script')
     <script>
+        $(document).on('click', '.delete', function () {
+            $('#exampleModal').modal('show')
+            const id = $(this).attr('data-id');
+            let url = `{{ route('dashboard.galeries.destroy', ':id') }}`.replace(':id', id);
+            $('#deleteForm').attr('action', url);
+        });
+
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true
