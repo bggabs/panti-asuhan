@@ -21,15 +21,15 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Master</li>
             <li class="sidebar-item">
-                <a class="sidebar-link" href="">
-                    <i class="align-middle" data-feather="sliders"></i>
+                <a class="sidebar-link"  href="">
+                    <i class="align-middle" data-feather="home"></i>
                     <span class="align-middle">Dashboard</span>
                 </a>
             </li>
             @if(auth()->user()->roles->pluck('name')[0] == 'admin')
                 <li class="sidebar-item {{request()->routeIs('dashboard.donation.*') ? 'active' : ''}}">
 						<a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="heart"></i> 
+                            <i class="align-middle" data-feather="heart"></i>
                             <span class="align-middle">Donasi</span>
                         </a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
@@ -39,7 +39,7 @@
 					</li>
                 <li class="sidebar-item {{request()->routeIs('dashboard.events.index') ? 'active' : ''}}">
                 <a class="sidebar-link" href="{{ route('dashboard.events.index') }}">
-                    <i class="align-middle" data-feather="heart"></i>
+                    <i class="align-middle" data-feather="calendar"></i>
                     <span class="align-middle">Event</span>
                 </a>
                 </li>
@@ -52,21 +52,21 @@
 
                 <li class="sidebar-item  {{request()->routeIs('dashboard.profile.index') ? 'active' : ''}}">
                     <a class="sidebar-link" href="{{ route('dashboard.profile.index') }}">
-                        <i class="align-middle me-2" data-feather="film"> </i>
+                        <i class="align-middle me-2" data-feather="user"> </i>
                         <span class="align-middle">Data Profiles</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item {{request()->routeIs('dashboard.child.index') ? 'active' : ''}}" >
                     <a class="sidebar-link" href="{{ route('dashboard.child.index') }}">
-                        <i class="align-middle me-2" data-feather="user"></i>
+                        <i class="align-middle me-2" data-feather="smile"></i>
                         <span class="align-middle">Data Anak</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item {{request()->routeIs('dashboard.feedback.index') ? 'active' : ''}}" >
                     <a class="sidebar-link" href="{{ route('dashboard.feedback.index') }}">
-                        <i class="align-middle me-2" data-feather="user"></i>
+                        <i class="align-middle me-2" data-feather="message-circle"></i>
                         <span class="align-middle">Data Feedback</span>
                     </a>
                 </li>

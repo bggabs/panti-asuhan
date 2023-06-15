@@ -1,6 +1,4 @@
-@extends('dashboard.layout.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <main class="content">
         <div class="container-fluid p-0">
             <div class="row">
@@ -11,11 +9,11 @@
                             <h6 class="card-subtitle text-muted">Anda dapat menambah Daftar Anak Panti di form ini</h6>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.child.store') }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                {{--                                <input name="id" value="" hidden> --}}
+                            <form action="<?php echo e(route('dashboard.child.store')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
+                                
                                 <input type="hidden" name="id"
-                                    value="{{ intval(DB::table('galleries')->max('id')) + 1 }}">
+                                    value="<?php echo e(intval(DB::table('galleries')->max('id')) + 1); ?>">
                                 <div class="row">
                                     <div class="mb-3 col-6">
                                         <label class="form-label">Nama</label>
@@ -53,7 +51,7 @@
 
                                 <div class="mt-3"></div>
                                 <button type="submit" class="btn btn-primary rounded-5">Submit</button>
-                                <a class="btn btn-warning rounded-5" href="{{ route('dashboard.child.index') }}">Back</a>
+                                <a class="btn btn-warning rounded-5" href="<?php echo e(route('dashboard.child.index')); ?>">Back</a>
                             </form>
                         </div>
                     </div>
@@ -61,4 +59,6 @@
             </div>
         </div>
     </main>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('dashboard.layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Hewlett Packard\OneDrive\Documents\GitHub\panti-asuhan\panti-asuhan\resources\views/dashboard/pages/child/form-child.blade.php ENDPATH**/ ?>

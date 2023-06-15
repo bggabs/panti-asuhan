@@ -45,19 +45,22 @@ class DonationController extends Controller
 
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'name' => 'required',
             'amount' => 'required',
             'description' => 'required',
             'photo' => 'required',
+            'donation_type' => 'required',
         ]);
-        
+
         $data['photo'] = Storage::disk('public')->put('file',$request->file('photo'));
         $data['order_id'] = mt_rand(10000,1000000);
         $data['date'] = Carbon::now();
         $data['user_id'] = Auth()->id();
         $data['status'] = 'settlement';
         $data['donation_type'] = 'barang';
+        dd($data);
         Donation::create($data);
 
         return to_route('dashboard.donation.barang.index');

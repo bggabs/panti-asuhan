@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Donation extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = ['order_id', 'amount', 'name', 'date', 'payment_type', 'bank', 'user_id', 'status', 'description', 'dontaion_type', 'photo', 'activity_id'];
 
     public function user(): BelongsTo

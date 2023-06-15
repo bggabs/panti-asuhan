@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Child;
-use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +18,7 @@ class ChildController extends Controller
     {
         Child::all();
         $child = Child::orderBy('id', 'asc')->paginate(6);
-        return view('dashboard.pages.child.index',compact('child'));
+        return view('dashboard.pages.child.index', compact('child'));
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -44,18 +43,18 @@ class ChildController extends Controller
 //        dd($request->photo);
         //melakukan validasi data
         $request->validate([
-            'id'=>'required',
+            'id' => 'required',
             'name' => 'required',
             'birthdate' => 'required',
             'photo' => 'required',
             'gender' => 'required',
         ]);
 
-       $photo = null;
+        $photo = null;
 
-       if ($request->hasFile('photo')) {
-           $photo = $request->file('photo')->store('gallery', 'public');
-       }
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('gallery', 'public');
+        }
 
         //mengisi nilai model Gallery
         $child = new Child;
@@ -114,8 +113,8 @@ class ChildController extends Controller
     {
         //melakukan validasi data
 //        dd($request->photo);
-        $request->validate([
-            'id'=>'required',
+        $data = $request->validate([
+            'id' => 'required',
             'name' => 'required',
             'birthdate' => 'required',
             'photo' => 'required',
@@ -129,10 +128,10 @@ class ChildController extends Controller
 
         $oldPhoto = $child->photo;
 
-        if($request->hasFile('photo'))
-        {
-            if(Storage::exists('public/' . $child->photo))
+        if ($request->hasFile('photo')) {
+            if (Storage::exists('public/' . $child->photo)) {
                 Storage::delete('public/' . $child->photo);
+            }
 
             $data['photo'] = $request->photo->store('child', 'public');
         }
@@ -145,7 +144,7 @@ class ChildController extends Controller
         $child->save();
 
         return redirect()->route('dashboard.child.index')
-            ->with('success', 'Data gallery berhasil diupdate.');
+            ->with('success', 'Data child berhasil diupdate.');
     }
 
     /**
@@ -156,11 +155,13 @@ class ChildController extends Controller
      */
     public function destroy($id)
     {
-        $child=Child::find($id);
-        if(Storage::exists('public/' . $child->photo))
+        $child = Child::find($id);
+        if (Storage::exists('public/' . $child->photo)) {
             Storage::delete('public/' . $child->photo);
+        }
+
         $child->delete();
         return redirect()->route('dashboard.child.index')
-            -> with('success', 'Mahasiswa Berhasil Dihapus');
+            ->with('success', 'Mahasiswa Berhasil Dihapus');
     }
 }
