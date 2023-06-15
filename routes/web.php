@@ -57,8 +57,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
 
 //Auth::routes();
 Route::middleware('auth')->group(function () {
-    Route::get('/event-donation/{event}', [HomeController::class, 'eventDonation'])->name('event-donation');
     Route::get('/donation-form', [HomeController::class, 'donation'])->name('donation');
+    Route::get('/event-donation/{event}', [HomeController::class, 'eventDonation'])->name('event-donation');
     Route::post('/donate-action', [HomeController::class, 'donate'])->name('donate-action');
 });
 Route::get('/event-donation/{event}/detail', [EventController::class, 'show'])->name('event-detail');

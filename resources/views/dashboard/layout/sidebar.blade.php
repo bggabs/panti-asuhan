@@ -21,7 +21,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Master</li>
             <li class="sidebar-item">
-                <a class="sidebar-link"  href="">
+                <a class="sidebar-link"  href="{{ route('dashboard.index') }}">
                     <i class="align-middle" data-feather="home"></i>
                     <span class="align-middle">Dashboard</span>
                 </a>

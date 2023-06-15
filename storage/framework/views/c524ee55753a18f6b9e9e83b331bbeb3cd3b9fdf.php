@@ -35,25 +35,7 @@
         <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <?php echo $__env->yieldContent('content'); ?>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alert!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Anda Belum Melakukan Login! Klik OK jika ingin ke halaman login
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="<?php echo e(route ('donation')); ?>" type="button" class="btn btn-primary">OK</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 
@@ -80,6 +62,7 @@
     <script src="<?php echo e(asset('js/google-map.js')); ?>"></script>
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <?php echo $__env->yieldContent('script'); ?>
 </body>

@@ -79,6 +79,6 @@ class RegisterController extends Controller
 
     public function redirectPath()
     {
-        return '/home';
+        return '/';
     }
 }

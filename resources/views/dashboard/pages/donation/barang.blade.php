@@ -17,8 +17,8 @@
                                     </h6>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a target="_blank" href="{{ route('dashboard.printMoneyDonation') }}"
-                                        class="btn btn-danger">Cetak PDF</a>
+{{--                                    <a target="_blank" href="{{ route('dashboard.printMoneyDonation') }}"--}}
+{{--                                        class="btn btn-danger">Cetak PDF</a>--}}
                                     <a href="{{ route('dashboard.donation.barang.create') }}" class="btn btn-primary">Buat
                                         Donasi</a>
                                 </div>

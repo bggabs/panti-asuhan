@@ -32,7 +32,7 @@
                             <h3 class="mb-4">Donasi</h3>
                             <p>Ketika kita memberikan kebahagiaan kepada orang lain, sebenarnya kita sedang membahagiakan diri sendiri.</p>
                             <?php if(Auth::check()): ?>
-                                <p><a href="<?php echo e(route('donation')); ?>" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+
                             <?php else: ?>
                             <p><a href="<?php echo e(route('donation')); ?>" class="btn btn-white px-3 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Donate Sekarang</a></p>
                             <?php endif; ?>
@@ -50,6 +50,9 @@
                 </div>
             </div>
         </div>
+
+
+        
     </section>
 
     <section class="ftco-section">
@@ -157,13 +160,13 @@
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name">
+                            <input type="text" class="form-control" name="name" placeholder="Nama Anda">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Your Email">
+                            <input type="text" class="form-control" name="email" placeholder="Email Anda">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="password" placeholder="Your Password">
+                            <input type="password" class="form-control" name="password" placeholder="Password Anda">
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Buat Akun" class="btn btn-white py-3 px-5">
@@ -174,7 +177,24 @@
         </div>
     </section>
 
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alert!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Anda Belum Melakukan Login! Klik OK jika ingin ke halaman login
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="<?php echo e(route ('donation')); ?>" type="button" class="btn btn-primary">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php $__env->stopSection(); ?>
 

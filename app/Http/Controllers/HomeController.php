@@ -52,7 +52,8 @@ class HomeController extends Controller
 
     public function eventDonation(Activity $event)
     {
-        return view('donateform-event', compact('event'));
+        $profile = \App\Models\Profile::first();
+        return view('donateform-event', compact('event', 'profile'));
     }
 
     public function donate(Request $request): JsonResponse
