@@ -10,7 +10,6 @@
                     <div class="card-header">
                         <h5 class="card-title mb-0">Profile</h5>
                     </div>
-                    <?php dd($profile); ?>
                     <div class="card-body text-center">
                         <img src="<?php echo e(asset('storage/' . $profile->logo)); ?>" alt="Stacie Hall" class="img-fluid rounded-circle mb-2" width="150" height="150">
                         <h5 class="card-title mb-0"><?php echo e($profile->name); ?></h5>

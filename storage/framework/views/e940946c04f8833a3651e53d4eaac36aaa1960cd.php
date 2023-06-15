@@ -15,6 +15,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <form action="<?php echo e(Route('dashboard.donation.barang.store')); ?>" method="post" enctype="multipart/form-data">
+                                            <?php echo method_field('POST'); ?>
                                             <?php echo csrf_field(); ?>
                                             <div class="row">
                                                 <div class="mb-3 col-6">
@@ -43,7 +44,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="donation_type" value="barang">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
