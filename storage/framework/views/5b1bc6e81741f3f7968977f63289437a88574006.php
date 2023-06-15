@@ -14,11 +14,15 @@
                 <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img class="card-img-top" src="<?php echo e(asset('storage/'. $event->photo)); ?>" alt="Unsplash">
+                            <img class="card-img-top" style="height: 200px" src="<?php echo e(asset('storage/'. $event->photo)); ?>" alt="Unsplash">
                             <div class="card-header">
                                 <h5 class="card-title mb-0"><?php echo e($event->name); ?></h5>
                             </div>
                             <div class="card-body">
+                                <div class="">
+                                    <span class="badge badge-soft-danger me-2">pengeluaran: Rp.<?php echo e($event->cost); ?> </span>
+                                    <span class="badge badge-soft-success me-2">pendapatan: Rp.<?php echo e($event->donations->sum('amount')); ?> </span>
+                                </div>
                                 <p class="card-text"><?php echo e($event->description); ?></p>
                                 <a href="<?php echo e(route('dashboard.events.edit', $event->id)); ?>" class="card-link">Edit</a>
                                 <a href="#" data-id="<?php echo e($event->id); ?>" class="card-link delete">Hapus</a>

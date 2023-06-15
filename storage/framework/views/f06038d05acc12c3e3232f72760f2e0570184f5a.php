@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="hero-wrap" style="background-image: url(<?php echo e(asset('images/panti7.jpg')); ?>);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -33,7 +35,7 @@
                                     <a href="<?php echo e(route('event-donation', $message->id)); ?>" class="btn btn-primary" style="width: 100%">Donasi</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-default" style="width: 100%">Detail</button>
+                                    <a href="<?php echo e(route('event-detail', $message->id)); ?>" class="btn btn-default" style="width: 100%">Detail</a>
                                 </div>
 
                             </div>
@@ -45,17 +47,8 @@
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
+                    <?php echo e($events->links()); ?>
+
                 </div>
             </div>
         </div>
