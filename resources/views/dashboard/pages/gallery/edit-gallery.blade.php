@@ -15,10 +15,19 @@
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="id" value="{{$gallery->id}}">
-                                <div class="mb-3">
-                                    <label class="form-label">Nama</label>
-                                    <input type="text" name="name" value="{{$gallery->name}}"  class="form-control" placeholder="Nama">
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label class="form-label">Nama</label>
+                                        <input type="text" name="name" value="{{$gallery->name}}"  class="form-control" placeholder="Nama">
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                            <label class="form-label">Date</label>
+                                            <input class="form-control" type="date" value="{{$gallery->date}}" name="date" />
+
+                                    </div>
                                 </div>
+
                                 {{-- <div class="mb-3">
                                     <label for="photo">Foto</label>
                                     <br>
@@ -50,13 +59,6 @@
                                 <div class="mb-3">
                                     <label class="form-label">Deskripsi</label>
                                     <textarea class="form-control" placeholder="Textarea" name="description" rows="3">{{$gallery->description}}</textarea>
-                                </div>
-
-                                <div class="col-12 col-xl-4">
-                                    <div class="mb-3 mb-xl-0">
-                                        <label class="form-label">Date</label>
-                                        <input class="form-control" type="date" value="{{$gallery->date}}" name="date" />
-                                    </div>
                                 </div>
                                 <div class="mt-3"></div>
                                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -11,22 +11,21 @@
                             <h6 class="card-subtitle text-muted">Anda dapat menambah Daftar Anak Panti di form ini</h6>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('dashboard.child.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.child.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-{{--                                <input name="id" value="" hidden>--}}
-                                <input type="hidden" name="id" value="{{ intval(DB::table('galleries')->max('id')) + 1 }}">
-                                <div class="mb-3">
-                                    <label class="form-label">Nama</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Nama">
-                                </div>
-
-                                <div class="col-12 col-xl-4">
-                                    <div class="mb-3 mb-xl-0">
+                                {{--                                <input name="id" value="" hidden> --}}
+                                <input type="hidden" name="id"
+                                    value="{{ intval(DB::table('galleries')->max('id')) + 1 }}">
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label class="form-label">Nama</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Nama">
+                                    </div>
+                                    <div class="col-6">
                                         <label class="form-label">Date</label>
                                         <input class="form-control" type="date" name="birthdate" />
                                     </div>
                                 </div>
-
                                 <div class="mb-3">
                                     <label class="form-label w-100">Upload Photo</label>
                                     <input type="file" name="photo" class="form-control">
@@ -36,11 +35,13 @@
                                     <label class="form-label">Pilih Jenis Kelamin Anda</label>
                                     <div class="form-inline">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gender" id="exampleRadio1" value="Laki-Laki" checked>
+                                            <input class="form-check-input" type="radio" name="gender" id="exampleRadio1"
+                                                value="Laki-Laki">
                                             <label class="form-check-label" for="exampleRadio1">Laki-laki</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gender" id="exampleRadio2" value="Perempuan">
+                                            <input class="form-check-input" type="radio" name="gender" id="exampleRadio2"
+                                                value="Perempuan">
                                             <label class="form-check-label" for="exampleRadio2">Perempuan</label>
                                         </div>
                                     </div>
@@ -52,7 +53,7 @@
 
                                 <div class="mt-3"></div>
                                 <button type="submit" class="btn btn-primary rounded-5">Submit</button>
-                                <a class="btn btn-warning rounded-5" href="{{route('dashboard.child.index')}}">Back</a>
+                                <a class="btn btn-warning rounded-5" href="{{ route('dashboard.child.index') }}">Back</a>
                             </form>
                         </div>
                     </div>
@@ -61,4 +62,3 @@
         </div>
     </main>
 @endsection
-
