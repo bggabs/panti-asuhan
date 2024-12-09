@@ -47,7 +47,7 @@ class DonationController extends Controller
             'name' => 'required',
             'amount' => 'required',
             'description' => 'required',
-            'photo' => 'required',
+            'photo' => 'required|image',
         ]);
         $data['photo'] = Storage::disk('public')->put('file', $request->file('photo'));
         $data['order_id'] = mt_rand(10000, 1000000);
@@ -92,4 +92,27 @@ class DonationController extends Controller
 
         return to_route('dashboard.donation.index')->with('success', 'berhasil menghapus donation!');
     }
+
+    public function storeMoney(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'description' => 'nullable',
+            'photo' => 'required|image', // Pastikan foto adalah gambar
+        ]);
+    
+        // Simpan foto jika ada
+        $data['photo'] = Storage::disk('public')->put('file', $request->file('photo'));
+        $data['order_id'] = mt_rand(10000, 1000000);
+        $data['date'] = Carbon::now();
+        $data['user_id'] = Auth()->id();
+        $data['status'] = 'settlement';
+        $data['donation_type'] = 'uang'; // Set donation_type ke 'uang'
+    
+        Donation::create($data);
+    
+        return to_route('dashboard.donation.uang.index')->with('success', 'Donasi uang berhasil disimpan!');
+    }
+
 }

@@ -29,13 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $fosterChildCount = DB::table('foster_children')->count();
-        $profile = \App\Models\Profile::first();
-        $gallery = \App\Models\Gallery::orderBy('created_at', 'desc')->take(4)->get();
         $events = \App\Models\Activity::orderBy('created_at', 'desc')->take(3)->get();
         $data = array(
-            'profile' => $profile,
             'events' => $events,
-            'gallery' => $gallery,
             'fosterChildCount' => $fosterChildCount
         );
         return view('home', $data);
@@ -43,16 +39,14 @@ class HomeController extends Controller
 
     public function donation()
     {
-        $profile = \App\Models\Profile::first();
         $data = array(
-            'profile' => $profile,
+
         );
         return view('donateform', $data);
     }
 
     public function eventDonation(Activity $event)
     {
-        $profile = \App\Models\Profile::first();
         return view('donateform-event', compact('event', 'profile'));
     }
 

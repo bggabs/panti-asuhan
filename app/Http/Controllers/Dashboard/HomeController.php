@@ -16,7 +16,6 @@ class HomeController extends Controller
         $donBarang = Donation::where('donation_type', 'barang')->sum('amount');
         $donUang = Donation::where('donation_type', 'uang')->sum('amount');
         $event = \App\Models\Activity::count();
-        $gallery = \App\Models\Gallery::count();
         $data_anak = \App\Models\Child::count();
         $data_feedback = \App\Models\Feedback::count();
         $data_donatur = DB::table('roles', '2')->count();
@@ -24,7 +23,6 @@ class HomeController extends Controller
             'don_barang' => $donBarang,
             'don_uang' => $donUang,
             'event' => $event,
-            'gallery' => $gallery,
             'data_anak' => $data_anak,
             'data_donatur' => $data_donatur,
             'data_feedback' => $data_feedback

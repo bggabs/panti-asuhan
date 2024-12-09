@@ -5,7 +5,7 @@
             </div>
             <div class="col-6 text-end">
                 <p class="mb-0">
-                    &copy; 2022 - <a href="index-2.html" class="text-muted">Panti Asuhan Mawwadah Warohmah</a>
+                    &copy; 2024 - <a href="index-2.html" class="text-muted">Panti Asuhan Al-Mubarok</a>
                 </p>
             </div>
         </div>

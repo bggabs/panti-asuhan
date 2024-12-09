@@ -22,7 +22,7 @@
                                         <input type="text" name="name" class="form-control" placeholder="Nama">
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Birth Date</label>
                                         <input class="form-control" type="date" name="birthdate" />
                                     </div>
                                 </div>

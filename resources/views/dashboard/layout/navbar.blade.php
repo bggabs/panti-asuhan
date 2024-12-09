@@ -5,7 +5,7 @@
 
     <div class="d-none d-sm-inline-block mt-3">
         <h4>Login Sebagai: <span
-                class="badge badge-soft-success">{{ auth()->user()->roles->pluck('name')[0] }}</span></h4>
+                class="badge badge-soft-success">{{ auth()->user()->role }}</span></h4>
     </div>
 
     <ul class="navbar-nav"></ul>

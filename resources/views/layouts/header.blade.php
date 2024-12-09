@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/">Panti Mawaddah Warohmah</a>
+        <a class="navbar-brand" href="/">Panti Asuhan Al-Mubarok</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -9,22 +9,20 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}"><a href="/"
-                        class="nav-link">Beranda</a></li>
+                        class="nav-link">HOME</a></li>
                 <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}"><a href="/about"
-                        class="nav-link">Tentang</a></li>
+                        class="nav-link">ABOUT US</a></li>
                 @if (auth()->check())
                     <li class="nav-item {{ request()->routeIs('donateform') ? 'active' : '' }}"><a
-                            href="{{ route('donation') }}" class="nav-link">Donasi</a></li>
+                            href="{{ route('donation') }}" class="nav-link">DONASI</a></li>
                 @else
                     <li class="nav-item {{ request()->routeIs('donate') ? 'active' : '' }}" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"><a href="#" class="nav-link ">Donasi</a></li>
+                        data-bs-target="#exampleModal"><a href="#" class="nav-link ">DONASI</a></li>
                 @endif
-                <li class="nav-item {{ request()->routeIs('gallery') ? 'active' : '' }}"><a href="/gallery"
-                        class="nav-link">Galeri</a></li>
                 <li class="nav-item {{ request()->routeIs('event') ? 'active' : '' }}"><a href="/event"
-                        class="nav-link">Events</a></li>
+                        class="nav-link">PROGRAM</a></li>
                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}"><a href="/contact"
-                        class="nav-link">Kontak</a></li>
+                        class="nav-link">KONTAK</a></li>
                 {{--                @if (auth()->check()) --}}
                 {{--                    <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}"><a href="/contact" class="nav-link" href="{{ route('logout') }}" --}}
                 {{--                                                                                           onclick="event.preventDefault(); --}}

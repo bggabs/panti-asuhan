@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="hero-wrap" style="background-image: url({{asset('images/panti5.jpg')}});" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url({{ asset('images/yayasan13.jpeg') }});" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
                     <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Beranda</a></span> <span>Donasi</span></p>
                     <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Halaman Donasi</h1>
                 </div>
@@ -13,41 +13,62 @@
         </div>
     </div>
 
-
     <section class="ftco-section contact-section ftco-degree-bg">
         <div class="container">
             <div class="row d-flex mb-5 contact-info">
                 <div class="col-md-12 mb-4">
                     <h2 class="h4">Terimakasih !</h2>
                     <p>Memberikan kebahagiaan untuk orang lain sejatinya juga membahagiakan diri-sendiri. Mari, bantu anak-anak yatim di panti asuhan agar senyum tergelincir di bibir mereka.</p>
+                    <h1 class="h4">BSI 7733300072</h1> 
                 </div>
             </div>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row block-9">
                 <div class="col-md-6 pr-md-5">
-                    <h4 class="mb-4">Donasi</h4>
-                    <form id="donate-form" method="POST" action="#">
+                    <form action="{{ route('donasi.storeMoney') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Donasi ex:200.000">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+
                         <div class="form-group">
-                            <textarea name="pesan" id="" cols="30" rows="7" class="form-control" placeholder="pesan..."></textarea>
+                            <label for="amount">Jumlah Donasi</label>
+                            <input type="number" id="amount" name="amount" class="form-control" required>
+                            @error('amount')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+
                         <div class="form-group">
-                            <input type="submit" value="Kirim" class="btn btn-primary py-3 px-5">
+                            <label for="description">Pesan (Opsional)</label>
+                            <textarea id="description" name="description" class="form-control"></textarea>
+                            @error('description')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label for="photo">Upload Bukti Pembayaran</label>
+                            <input type="file" id="photo" name="photo" class="form-control" accept="image/*" required>
+                            @error('photo')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Kirim Donasi</button>
                     </form>
-
                 </div>
-
-                {{--                <div class="col-md-6" id="map"></div>--}}
-                <div class="col-md-6">
-
-                </div>
-
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('script')
@@ -68,47 +89,41 @@
                     processData: false,
                     contentType: false,
                     cache: false,
-                    url: '{{ url('donate-action') }}',
+                    url: '{{ url ('donate-action') }}',
                     data: fd,
                     enctype: 'multipart/form-data',
                     dataType: 'JSON',
-                    success : function (res) {
+                    success: function(res) {
                         console.log(res)
                         window.snap.pay(res.token, {
-                            onSuccess: function(result){
-                                /* You may add your own implementation here */
+                            onSuccess: function(result) {
                                 Swal.fire(
                                     'Berhasil',
                                     'Terimakasih atas kebaikan anda !',
                                     'success'
                                 )
                             },
-                            onPending: function(result){
-                                /* You may add your own implementation here */
-                                // alert("wating your payment!"); console.log(result);
+                            onPending: function(result) {
                                 Swal.fire(
                                     'Menunggu',
                                     'Silahkan melakukan pembayaran !',
                                     'info'
                                 )
                             },
-                            onError: function(result){
-                                /* You may add your own implementation here */
-                                // alert("payment failed!"); console.log(result);
+                            onError: function(result) {
                                 Swal.fire(
                                     'Error',
                                     'Maaf, terjadi kesalahan !',
                                     'error'
                                 )
                             },
-                            onClose: function(){
-                                /* You may add your own implementation here */
-                                // alert('you closed the popup without finishing the payment');
+                            onClose: function() {
+                                // Optional: Handle the close event
                             }
                         });
 
-                        $('input[name="jumlah"]').val("")
-                        $('textarea[name="pesan"]').val("")
+                        $('input[name="amount"]').val("")
+                        $('textarea[name="description"]').val("")
                     }
                 })
             })

@@ -40,13 +40,32 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        if($request->hasFile('photo'))
+        // Validasi input, pastikan cost ada dan valid
+        $validated = $request->validate([
+            'name' => 'required',
+            'datetime' => 'required|date',
+            'description' => 'required',
+            'cost' => 'required|numeric', // Pastikan cost tidak null dan berupa angka
+            'activity_type' => 'required',
+            'total_child' => 'required|integer',
+            'location' => 'required',
+            'organizer' => 'required',
+            'content' => 'required',
+            'photo' => 'nullable|image', // Foto opsional
+        ]);
+    
+        // Mengambil data yang sudah tervalidasi
+        $data = $validated;
+    
+        // Menyimpan foto jika ada
+        if ($request->hasFile('photo')) {
             $data['photo'] = $request->photo->store('event', 'public');
-
+        }
+    
+        // Membuat data baru di tabel Activity
         Activity::create($data);
-
+    
+        // Redirect dengan pesan sukses
         return to_route('dashboard.events.index')->with('success', 'berhasil menambahkan event!');
     }
 

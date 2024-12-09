@@ -64,23 +64,6 @@
                         <div class="card-body py-4">
                             <div class="d-flex align-items-start">
                                 <div class="flex-grow-1">
-                                    <h3 class="mb-2 mt-3">{{$gallery}}</h3>
-                                    <p class="mb-2 mt-3 fs-4">Total Gallery</p>
-                                </div>
-                                <div class="d-inline-block ms-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-feather="file"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-xxl-3 d-flex">
-                    <div class="card flex-fill">
-                        <div class="card-body py-4">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-grow-1">
                                     <h3 class="mb-2 mt-3">{{$data_anak}}</h3>
                                     <p class="mb-2 mt-3 fs-4">Total Data Anak</p>
                                 </div>

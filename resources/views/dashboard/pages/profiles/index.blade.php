@@ -12,9 +12,8 @@
                         <h5 class="card-title mb-0">Profile</h5>
                     </div>
                     <div class="card-body text-center">
-                        <img src="{{ asset('storage/' . $profile->logo) }}" alt="Stacie Hall" class="img-fluid rounded-circle mb-2" width="150" height="150">
-                        <h5 class="card-title mb-0">{{ $profile->name }}</h5>
-                        <div class="text-muted mb-2">{{ $profile->email }}</div>
+                        <h5 class="card-title mb-0">{{ $profile ? $profile->name : 'Profile Tidak Ditemukan' }}</h5>
+                        <div class="text-muted mb-2">{{ $profile ? $profile->email : 'Tidak ada email' }}</div>
                     </div>
                     <hr class="my-0">
                     <div class="card-body">

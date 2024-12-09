@@ -52,7 +52,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Total Anak</label>
-                                        <input type="number" class="form-control" name="total_child" placeholder="10">
+                                        <input type="number" class="form-control" name="total_child" placeholder="0">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label class="form-label">Lokasi</label>

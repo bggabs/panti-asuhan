@@ -14,7 +14,7 @@
     <meta name="author" content="Bootlab">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Dashboard Get-Magang</title>
+    <title>Dashboard Admin</title>
 
     <link rel="canonical" href="pages-blank.html" />
     <link rel="shortcut icon" href="img/favicon.ico">

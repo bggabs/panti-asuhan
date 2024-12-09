@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="hero-wrap" style="background-image: url({{asset('images/panti4.jpg')}});" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url({{asset('images/yayasan9.jpeg')}});" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Beranda</a></span> <span>Tentang</span></p>
+                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Beranda</a></span> <span>About Us</span></p>
                     <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tentang Kami</h1>
                 </div>
             </div>
@@ -18,13 +18,13 @@
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-about align-self-stretch" style="background-image: url({{asset('images/panti4.jpg')}}); width: 100%;"></div>
+                    <div class="img img-about align-self-stretch" style="background-image: url({{asset('images/yayasan7.jpeg')}}); width: 100%;"></div>
                 </div>
                 <div class="col-md-6 pl-md-5 ftco-animate">
-                    <h2 class="mb-4">Panti Mawaddah Warrahmah</h2>
-                    <p>Panti Asuhan Mawaddah Warrahmah Malang merupakan sebuah lembaga sosial yang bertujuan untuk memberikan perlindungan, pendidikan, dan perawatan kepada anak-anak yang kurang beruntung, yatim piatu, dan terlantar di wilayah Malang. Panti asuhan ini didirikan dengan semangat kasih sayang, kepedulian, dan perhatian terhadap masa depan anak-anak yang membutuhkan perhatian khusus.</p>
-                    <p>Panti Asuhan Mawaddah Warrahmah Malang menyediakan lingkungan yang aman, nyaman, dan hangat bagi anak-anak yang tinggal di sana. Staf dan relawan yang terlatih dengan baik berdedikasi untuk memberikan perhatian individual kepada setiap anak, serta mendukung mereka dalam memenuhi kebutuhan dasar, seperti makanan, pakaian, tempat tinggal, dan perawatan kesehatan. Panti asuhan ini juga berusaha memberikan pendidikan yang berkualitas kepada anak-anak dengan bekerja sama dengan sekolah lokal atau mengadakan program pendidikan di dalam panti.</p>
-                    <p>Selain memberikan perlindungan dan pendidikan, Panti Asuhan Mawaddah Warrahmah Malang juga berupaya membantu anak-anak mengembangkan keterampilan dan bakat mereka. Mereka mengadakan berbagai kegiatan seperti pelatihan keterampilan, olahraga, seni, dan kegiatan sosial lainnya untuk membantu anak-anak menemukan minat dan potensi terbaik mereka. Panti asuhan ini juga mengedepankan pendekatan yang menghormati kebudayaan dan agama anak-anak, sehingga mereka merasa diterima dan dihargai dalam lingkungan yang multikultural.</p>
+                    <h2 class="mb-4">Yayasan Panti Asuhan Al-Mubarok</h2>
+                    <p>Yayasan Panti Asuhan Al-Mubarok pada awalnya adalah merupakan sebuah Majlis Ta’lim Al-Mubarok. Kegiatan Majlis Ta’lim ini tidak hanya memberikan pendidikan dan pengajaran membaca dan menulis Alqur’an saja, namun juga pendidikan lainnya, seperti latihan pidato, kaligrafi, cerdas cermat, dll. Salah satu kegiatan lain yang menonjol adalah santunan sosial bagi anak yatim, yatim piatu dan kaum dhuafa.</p>
+                    <p>Dari tahun ke tahun dalam perkembangannya banyak membawa perubahan dan kegiatannya semakin banyak dirasakan manfaatnya oleh masyarakat terutama masyarakat di sekitarnya. dan anak asuh kami sudah menghapal al qur'an 30 juz</p>
+                    <p>Visi Yayasan Al-Mubarok adalah menjadi lembaga pendidikan yang mampu membentuk generasi bangsa yang berilmu pengetahuan dan berakhlak mulia. Dengan di dukung Misi yaitu, menanamkan keimanan dan ketakwaan kepada Allah SWT, membentuk anak didik dengan perilaku dan akhlak yang mulia, serta mengembangkan potensi anak didik dalam bentuk kecerdasan emosional, kecerdasan intelektual, dan kecerdasan spiritual.</p>
 
                 </div>
             </div>
@@ -68,6 +68,7 @@
             </div>
         </div>
     </section>
+    <br><br>
 
 
 @endsection

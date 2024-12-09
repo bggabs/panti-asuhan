@@ -25,7 +25,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Tipe Pembayaran</th>
+                                    <th>Bukti Transfer</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal</th>
                                     <th>Jumlah</th>
@@ -35,8 +35,10 @@
                                 @foreach($donations as $donation)
                                     <tr>
                                         <td>{{ $donation->user->name }}</td>
-                                        <td>{{ $donation->payment_type }}</td>
-                                        <td>{{ $donation->description }}</td>
+                                        <td>
+                                            <img width="75" height="75"
+                                            src="{{ asset('storage/' . $donation->photo) }}" alt="">
+                                        </td>                                        <td>{{ $donation->description }}</td>
                                         <td>{{ \Carbon\Carbon::parse($donation->date)->format('d M Y') }}</td>
                                         <td>Rp.{{ number_format($donation->amount) }}</td>
                                     </tr>
